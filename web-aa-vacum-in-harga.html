@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AA Vacum In - Detail Harga</title>
+    <style>
+        :root {
+            --primary: #0f6ebd;
+            --primary-dark: #0b4f86;
+            --accent: #ff7a00;
+            --accent-soft: #fff2e5;
+            --text: #233142;
+            --muted: #6b7a90;
+            --bg: #f5f9ff;
+            --surface: #ffffff;
+            --border: #dfe9f5;
+        }
+
+        * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text);
+            background: linear-gradient(145deg, #f7fbff 0%, var(--bg) 100%);
+            line-height: 1.6;
+        }
+
+        a { color: inherit; }
+        .container { max-width: 1120px; margin: 0 auto; padding: 24px 20px 60px; }
+        .navbar { position: sticky; top: 0; z-index: 100; background: rgba(11, 79, 134, 0.95); backdrop-filter: blur(10px); box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
+        .nav-wrap { max-width: 1120px; margin: 0 auto; padding: 14px 20px; display: flex; justify-content: space-between; align-items: center; }
+        .brand { display: flex; align-items: center; gap: 10px; font-weight: 800; color: white; letter-spacing: 0.3px; text-decoration: none; }
+        .brand-mark { width: 42px; height: 42px; border-radius: 12px; background: linear-gradient(135deg, #4fd1c5, #2b6cb0); display: grid; place-items: center; color: white; font-size: 1.2rem; box-shadow: inset 0 -3px 8px rgba(0,0,0,0.18); }
+        .nav-links { display: flex; gap: 18px; align-items: center; }
+        .nav-links a { color: white; text-decoration: none; font-weight: 600; }
+        .nav-links a:hover { opacity: 0.9; }
+        
+        .menu-toggle { display: none; background: transparent; border: 0; color: white; font-size: 1.4rem; cursor: pointer; }
+
+        .hero-card, .pricing-card, .calculator-card, .faq-item { background: var(--surface); border: 1px solid var(--border); border-radius: 22px; box-shadow: 0 18px 45px rgba(13, 72, 120, 0.08); }
+        .hero-card { padding: 32px; background: linear-gradient(135deg, rgba(255,255,255,0.96) 0%, rgba(235,245,255,0.95) 100%); }
+        h1, h2, h3 { margin: 0 0 12px; }
+        h1 { font-size: clamp(2rem, 3.2vw, 2.9rem); color: var(--primary-dark); line-height: 1.15; }
+        h2 { color: var(--primary-dark); }
+        .section-title { text-align: center; font-size: clamp(1.35rem, 2vw, 1.8rem); color: var(--primary-dark); margin-bottom: 18px; }
+        .section-subtitle { text-align: center; color: var(--muted); margin: -6px 0 18px; }
+        .pricing-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+        .pricing-card { padding: 22px; position: relative; overflow: hidden; }
+        .badge { display: inline-block; padding: 5px 10px; border-radius: 999px; background: #e8f7ff; color: var(--primary); font-size: 0.78rem; font-weight: 700; margin-bottom: 8px; }
+        .price { font-size: 1.8rem; font-weight: 800; color: var(--primary-dark); margin: 10px 0; }
+        .price-list { list-style: none; padding: 0; margin: 14px 0 0; }
+        .price-list li { margin-bottom: 8px; color: var(--muted); }
+        .price-list-details { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 18px; }
+        .price-list-details h4 { margin: 0 0 10px; font-size: 1rem; color: var(--primary-dark); }
+        .price-list-details ul { list-style: none; padding: 0; margin: 0; }
+        .calculator-card { padding: 24px; margin-top: 16px; }
+        .calculator-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; align-items: end; }
+        label { display: block; font-weight: 700; margin-bottom: 6px; color: var(--primary-dark); }
+        select, input { width: 100%; padding: 11px 12px; border-radius: 12px; border: 1px solid var(--border); font-size: 0.95rem; }
+        .result-box { margin-top: 16px; padding: 14px 16px; border-radius: 16px; background: linear-gradient(135deg, var(--accent-soft), #ffffff); border: 1px solid #fde1c8; color: var(--text); font-weight: 700; }
+        .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 13px 18px; border-radius: 999px; text-decoration: none; font-weight: 700; transition: transform 0.2s ease, box-shadow 0.2s ease; cursor: pointer; text-align: center; }
+        .btn-primary { background: linear-gradient(135deg, var(--primary), #4b9fe0); color: white; box-shadow: 0 12px 25px rgba(15,110,189,0.22); border: none; }
+        .btn-secondary { background: white; color: var(--primary-dark); border: 1px solid var(--border); }
+        
+        /* MEDIA QUERIES UNTUK RESPONSIVE MOBILE */
+        @media (max-width: 900px) { 
+            .pricing-grid { grid-template-columns: 1fr; } 
+            .price-list-details { grid-template-columns: 1fr; }
+        }
+        
+        @media (max-width: 768px) {
+            .container { padding: 16px 15px 40px; }
+            .hero-card, .pricing-card, .calculator-card { padding: 20px; }
+            .calculator-grid { grid-template-columns: 1fr; }
+            
+            /* Responsive Navbar */
+            .menu-toggle { display: block; }
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 65px;
+                right: 16px;
+                background: rgba(11, 79, 134, 0.98);
+                padding: 16px;
+                border-radius: 14px;
+                width: min(250px, calc(100% - 32px));
+                box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            }
+            .nav-links.open { display: flex; }
+            .nav-links a { padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.1); width: 100%; }
+            .nav-links a:last-child { border-bottom: none; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-wrap">
+            <a href="index.html" class="brand">
+                <span class="brand-mark">🧼</span>
+                <span>AA Vacum In</span>
+            </a>
+            <button class="menu-toggle" aria-label="Buka menu">☰</button>
+            <div class="nav-links" id="navLinks">
+                <a href="index.html">Beranda</a>
+                <a href="index.html#layanan">Layanan</a>
+                <a href="web-aa-vacum-in-harga.html">Detail Harga</a>
+                <a href="index.html#faq">FAQ</a>
+                <a href="https://www.instagram.com/aa_vacum.in/" target="_blank">Instagram</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <section class="section">
+            <h2 class="section-title">Detail Harga Lengkap</h2>
+            <p class="section-subtitle">Lihat daftar harga item dan hitung estimasi vacuum kering atau basah dengan mudah.</p>
+            <div class="pricing-grid">
+                <div class="pricing-card hero-card">
+                    <span class="badge">Vacuum Kering</span>
+                    <h3>Tarif Standar</h3>
+                    <div class="price">Rp 15.000 <span style="font-size: 1rem; font-weight: normal; color: var(--muted);">/ item</span></div>
+                    <ul class="price-list">
+                        <li>Harga tetap untuk semua item</li>
+                        <li>Cocok untuk pembersihan debu dan kotoran ringan</li>
+                    </ul>
+                </div>
+                <div class="pricing-card hero-card featured">
+                    <span class="badge">Vacuum Basah</span>
+                    <h3>Harga Normal</h3>
+                    <div class="price" style="font-size: 1.4rem;">Sesuai jenis item</div>
+                    <ul class="price-list">
+                        <li>Harga per item berdasarkan daftar harga</li>
+                        <li>Lebih intensif untuk noda dan kotoran basah</li>
+                    </ul>
+                </div>
+                <div class="pricing-card hero-card">
+                    <span class="badge">Kembali</span>
+                    <h3>Halaman Utama</h3>
+                    <p style="color: var(--muted); margin-top: 10px; font-size: 0.95rem;">Informasi ringkas ada di halaman utama. Kembali untuk melihat layanan lainnya.</p>
+                    <a class="btn btn-primary" href="index.html" style="width: 100%; margin-top: 10px;">Kembali ke Beranda</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="pricing-card hero-card">
+                <h3>Daftar Harga Item</h3>
+                <div class="price-list-details">
+                    <div>
+                        <h4>#Sofa / Kursi#</h4>
+                        <ul>
+                            <li>Sofa standar = Rp 25.000 / dudukan</li>
+                            <li>Sofa besar = Rp 40.000 / dudukan</li>
+                            <li>Sofa jumbo = Rp 60.000 / dudukan</li>
+                            <li>Sofa bed = Rp 200.000</li>
+                            <li>Kursi kantor K = Rp 20.000</li>
+                            <li>Kursi kantor B = Rp 40.000</li>
+                            <li>Kursi makan = Rp 35.000</li>
+                            <li>Jok mobil = Rp 50.000 / dudukan</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>#Karpet#</h4>
+                        <ul>
+                            <li>Karpet rumah = Rp 15.000 / m²</li>
+                            <li>Karpet kantor = Rp 25.000 / m²</li>
+                            <li>Karpet ibadah = Rp 15.000 / m²</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>#Kasur / Springbed#</h4>
+                        <ul>
+                            <li>Single = Rp 150.000</li>
+                            <li>Queen = Rp 200.000</li>
+                            <li>King = Rp 250.000</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="calculator-card hero-card">
+                <h3>Kalkulator Estimasi Harga</h3>
+                <p>Pilih layanan dan jenis item untuk melihat estimasi harga yang sesuai.</p>
+                <div class="calculator-grid">
+                    <div>
+                        <label for="serviceSelectDetail">Jenis layanan</label>
+                        <select id="serviceSelectDetail">
+                            <option value="dry">Vacuum Kering (Rp 15.000 / item)</option>
+                            <option value="wet">Vacuum Basah (harga normal item)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="itemTypeDetail">Jenis item</label>
+                        <select id="itemTypeDetail">
+                            <option value="sofa_standard">Sofa standar</option>
+                            <option value="sofa_besar">Sofa besar</option>
+                            <option value="sofa_jumbo">Sofa jumbo</option>
+                            <option value="sofa_bed">Sofa bed</option>
+                            <option value="kursi_kantor_k">Kursi kantor K</option>
+                            <option value="kursi_kantor_b">Kursi kantor B</option>
+                            <option value="kursi_makan">Kursi makan</option>
+                            <option value="jok_mobil">Jok mobil</option>
+                            <option value="karpet_rumah">Karpet rumah (m²)</option>
+                            <option value="karpet_kantor">Karpet kantor (m²)</option>
+                            <option value="karpet_ibadah">Karpet ibadah (m²)</option>
+                            <option value="kasur_single">Kasur single</option>
+                            <option value="kasur_queen">Kasur queen</option>
+                            <option value="kasur_king">Kasur king</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="itemCountDetail">Jumlah item / m²</label>
+                        <input id="itemCountDetail" type="number" min="1" value="1">
+                    </div>
+                </div>
+                
+                <button type="button" class="btn btn-secondary" onclick="tambahKeBill()" style="margin-top: 15px; width: 100%;">
+                    + Tambah ke Bill Pesanan
+                </button>
+
+                <!-- KOTAK STRUK DAN TOMBOL WA -->
+                <div id="areaStruk" style="display: none; margin-top: 20px; padding: 15px; background: #fff; border: 1px solid var(--border); border-radius: 12px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-bottom: 10px;">
+                        <h4 style="margin: 0; color: var(--primary-dark);">Daftar Pesanan:</h4>
+                        <button type="button" onclick="hapusSemuaPesanan()" style="border: none; background: #fff2f0; color: #c2410c; border-radius: 999px; padding: 6px 10px; font-size: 0.8rem; cursor: pointer;">Hapus Semua</button>
+                    </div>
+                    <ul id="listBill" style="list-style: none; padding: 0; margin: 0; font-size: 0.9rem;"></ul>
+                    <div style="margin-top: 15px; padding-top: 10px; border-top: 2px dashed #ccc; font-weight: bold; display: flex; justify-content: space-between;">
+                        <span>Grand Total:</span>
+                        <span id="grandTotalText">Rp 0</span>
+                    </div>
+                    
+                    <button type="button" class="btn btn-primary" onclick="kirimKeWhatsApp()" style="width: 100%; margin-top: 20px; justify-content: center; background: #25D366; box-shadow: 0 10px 20px rgba(37, 211, 102, 0.2); border: none; color: white;">
+                        Kirim Pesanan via WhatsApp
+                    </button>
+                </div>
+                
+                <div class="result-box" id="resultBoxDetail">Estimasi harga: Rp 15.000</div>
+            </div>
+        </section>
+    </div>
+
+   <script>
+    // Toggle Menu untuk Mobile
+    const toggle = document.querySelector('.menu-toggle');
+    const navLinks = document.getElementById('navLinks');
+    if(toggle) toggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+
+    const serviceSelectDetail = document.getElementById('serviceSelectDetail');
+    const itemTypeDetail = document.getElementById('itemTypeDetail');
+    const itemCountDetail = document.getElementById('itemCountDetail');
+    const resultBoxDetail = document.getElementById('resultBoxDetail');
+
+    const itemPrices = {
+        sofa_standard: 25000,
+        sofa_besar: 40000,
+        sofa_jumbo: 60000,
+        sofa_bed: 200000,
+        kursi_kantor_k: 20000,
+        kursi_kantor_b: 40000,
+        kursi_makan: 35000,
+        jok_mobil: 50000,
+        karpet_rumah: 15000,
+        karpet_kantor: 25000,
+        karpet_ibadah: 15000,
+        kasur_single: 150000,
+        kasur_queen: 200000,
+        kasur_king: 250000
+    };
+
+    let billKeranjang = [];
+
+    function formatRupiah(value) {
+        return value.toLocaleString('id-ID');
+    }
+
+    function tambahKeBill() {
+        const serviceNode = document.getElementById('serviceSelectDetail');
+        const typeNode = document.getElementById('itemTypeDetail');
+        const countNode = document.getElementById('itemCountDetail');
+        
+        const serviceName = serviceNode.options[serviceNode.selectedIndex].text;
+        const itemName = typeNode.options[typeNode.selectedIndex].text;
+        const count = Math.max(1, Number(countNode.value || 1));
+        const serviceVal = serviceNode.value;
+        const typeKey = typeNode.value;
+        
+        const basePrice = itemPrices[typeKey] || 0;
+        let subtotal = 0;
+        
+        if (serviceVal === 'dry') {
+            subtotal = 15000 * count;
+        } else {
+            subtotal = basePrice * count;
+        }
+        
+        billKeranjang.push({
+            layanan: serviceName,
+            item: itemName,
+            qty: count,
+            total: subtotal
+        });
+        
+        renderBill();
+    }
+
+    function hapusPesanan(index) {
+        billKeranjang.splice(index, 1);
+        renderBill();
+    }
+
+    function hapusSemuaPesanan() {
+        billKeranjang = [];
+        renderBill();
+    }
+
+    function renderBill() {
+        const areaStruk = document.getElementById('areaStruk');
+        const listBill = document.getElementById('listBill');
+        const grandTotalText = document.getElementById('grandTotalText');
+        const resultBoxDetail = document.getElementById('resultBoxDetail');
+        
+        listBill.innerHTML = '';
+        let grandTotal = 0;
+        
+        if (billKeranjang.length > 0) {
+            areaStruk.style.display = 'block';
+            resultBoxDetail.style.display = 'none';
+            
+            billKeranjang.forEach((pesanan, index) => {
+                grandTotal += pesanan.total;
+                
+                const li = document.createElement('li');
+                li.style.cssText = "display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-bottom: 8px; border-bottom: 1px solid #eee; padding-bottom: 8px;";
+                li.innerHTML = `
+                    <div style="flex: 1;">
+                        <div>${pesanan.qty}x ${pesanan.item}</div>
+                        <small style="color: gray;">(${pesanan.layanan})</small>
+                    </div>
+                    <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 6px;">
+                        <span style="font-weight: 600;">Rp ${formatRupiah(pesanan.total)}</span>
+                        <button type="button" onclick="hapusPesanan(${index})" style="border: none; background: #ffe5e5; color: #b42318; border-radius: 999px; padding: 4px 8px; font-size: 0.8rem; cursor: pointer;">Hapus</button>
+                    </div>
+                `;
+                listBill.appendChild(li);
+            });
+            
+            grandTotalText.textContent = `Rp ${formatRupiah(grandTotal)}`;
+        } else {
+            areaStruk.style.display = 'none';
+            resultBoxDetail.style.display = 'block';
+            resultBoxDetail.textContent = 'Belum ada pesanan. Tambahkan item untuk mulai membuat bill.';
+        }
+    }
+
+    function kirimKeWhatsApp() {
+        if (billKeranjang.length === 0) {
+            alert("Keranjang pesanan masih kosong!");
+            return;
+        }
+
+        let pesanWA = "Halo *AA Vacum In*, saya ingin memesan layanan berikut:%0A%0A";
+        let grandTotal = 0;
+
+        billKeranjang.forEach((pesanan, index) => {
+            pesanWA += `${index + 1}. ${pesanan.qty}x ${pesanan.item} (${pesanan.layanan}) - Rp ${formatRupiah(pesanan.total)}%0A`;
+            grandTotal += pesanan.total;
+        });
+
+        pesanWA += `%0A*Grand Total: Rp ${formatRupiah(grandTotal)}*%0A%0A`;
+        pesanWA += "Mohon info untuk ketersediaan jadwalnya. Terima kasih!";
+
+        const waNumber = '6285811912633';
+        window.open(`https://wa.me/${waNumber}?text=${pesanWA}`, '_blank');
+    }
+</script>
+</body>
+</html>
