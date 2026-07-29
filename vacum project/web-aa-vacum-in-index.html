@@ -1,0 +1,325 @@
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AA Vacum In - Jasa Hydro-Vacuum Professional</title>
+    <style>
+        :root {
+            --primary: #0f6ebd;
+            --primary-dark: #0b4f86;
+            --accent: #ff7a00;
+            --accent-soft: #fff2e5;
+            --text: #233142;
+            --muted: #6b7a90;
+            --bg: #f5f9ff;
+            --surface: #ffffff;
+            --border: #dfe9f5;
+        }
+
+        * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text);
+            background: linear-gradient(145deg, #f7fbff 0%, var(--bg) 100%);
+            line-height: 1.6;
+        }
+
+        a { color: inherit; text-decoration: none; }
+
+        .navbar { position: sticky; top: 0; z-index: 100; background: rgba(11, 79, 134, 0.95); backdrop-filter: blur(10px); box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
+        .nav-wrap { max-width: 1120px; margin: 0 auto; padding: 14px 20px; display: flex; justify-content: space-between; align-items: center; }
+        .brand { display: flex; align-items: center; gap: 10px; font-weight: 800; color: white; letter-spacing: 0.3px; }
+        .brand-mark { width: 42px; height: 42px; border-radius: 12px; background: linear-gradient(135deg, #4fd1c5, #2b6cb0); display: grid; place-items: center; color: white; font-size: 1.2rem; box-shadow: inset 0 -3px 8px rgba(0,0,0,0.18); }
+        
+        .nav-links { display: flex; gap: 18px; align-items: center; }
+        .nav-links a { color: white; text-decoration: none; font-weight: 600; }
+        .nav-links a:hover { opacity: 0.9; }
+        
+        .menu-toggle { display: none; background: transparent; border: 0; color: white; font-size: 1.4rem; cursor: pointer; }
+
+        .container { max-width: 1120px; margin: 0 auto; padding: 24px 20px 60px; }
+        
+        .hero { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 24px; align-items: center; padding: 28px 0 36px; }
+        .hero-card, .panel-card, .pricing-card, .testimonial-card, .faq-item, .calculator-card, .service-card, .process-card {
+            background: var(--surface); border: 1px solid var(--border); border-radius: 22px; box-shadow: 0 18px 45px rgba(13, 72, 120, 0.08);
+        }
+        
+        .hero-card { padding: 32px; background: linear-gradient(135deg, rgba(255,255,255,0.96) 0%, rgba(235,245,255,0.95) 100%); }
+        .eyebrow { display: inline-block; background: var(--accent-soft); color: var(--accent); padding: 6px 12px; border-radius: 999px; font-size: 0.83rem; font-weight: 700; margin-bottom: 12px; }
+        
+        h1, h2, h3 { margin: 0 0 12px; }
+        h1 { font-size: clamp(2rem, 3.2vw, 2.9rem); color: var(--primary-dark); line-height: 1.15; }
+        .hero p { color: var(--muted); font-size: 1rem; }
+        
+        .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 18px; }
+        .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 13px 18px; border-radius: 999px; text-decoration: none; font-weight: 700; transition: transform 0.2s ease, box-shadow 0.2s ease; cursor: pointer; text-align: center; }
+        .btn:hover { transform: translateY(-2px); }
+        .btn-primary { background: linear-gradient(135deg, var(--primary), #4b9fe0); color: white; box-shadow: 0 12px 25px rgba(15,110,189,0.22); border: none; }
+        .btn-secondary { background: white; color: var(--primary-dark); border: 1px solid var(--border); }
+        
+        .stats-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 12px; margin-top: 22px; }
+        .stat-pill { text-align: center; padding: 14px 10px; border-radius: 16px; background: white; border: 1px solid var(--border); }
+        .stat-pill strong { display: block; font-size: 1.08rem; color: var(--primary-dark); }
+        .stat-pill span { color: var(--muted); font-size: 0.84rem; }
+        
+        .panel-card { padding: 24px; background: linear-gradient(160deg, var(--primary-dark), var(--primary)); color: white; }
+        .panel-card ul { padding-left: 18px; margin: 12px 0 0; }
+        .panel-card li { margin-bottom: 8px; }
+        
+        .section { padding: 28px 0 8px; }
+        .section-title { text-align: center; font-size: clamp(1.35rem, 2vw, 1.8rem); color: var(--primary-dark); margin-bottom: 18px; }
+        .section-subtitle { text-align: center; color: var(--muted); margin: -6px 0 18px; }
+        
+        .services-grid, .process-grid, .testimonial-grid, .pricing-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+        
+        .service-card, .process-card, .testimonial-card { padding: 20px; }
+        .service-icon { width: 46px; height: 46px; border-radius: 14px; display: grid; place-items: center; margin-bottom: 12px; background: var(--accent-soft); color: var(--accent); font-size: 1.2rem; font-weight: 700; }
+        
+        .service-card h3, .process-card h3, .testimonial-card h3 { color: var(--primary-dark); }
+        .service-card p, .process-card p, .testimonial-card p { color: var(--muted); margin: 0; }
+        
+        .pricing-card { padding: 22px; position: relative; overflow: hidden; }
+        .pricing-card.featured { border: 2px solid #7bcdf0; transform: translateY(-3px); }
+        
+        .badge { display: inline-block; padding: 5px 10px; border-radius: 999px; background: #e8f7ff; color: var(--primary); font-size: 0.78rem; font-weight: 700; margin-bottom: 8px; }
+        .price { font-size: 1.8rem; font-weight: 800; color: var(--primary-dark); margin: 10px 0; }
+        .price-list { list-style: none; padding: 0; margin: 14px 0 0; }
+        .price-list li { margin-bottom: 8px; color: var(--muted); }
+        
+        .faq-list { display: grid; gap: 12px; }
+        .faq-item { padding: 16px 18px; }
+        .faq-question { display: flex; justify-content: space-between; align-items: center; cursor: pointer; font-weight: 700; color: var(--primary-dark); }
+        .faq-answer { display: none; margin-top: 10px; color: var(--muted); }
+        .faq-item.active .faq-answer { display: block; }
+        
+        .contact-box { display: flex; justify-content: space-between; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 26px; padding: 20px; background: linear-gradient(135deg, #fff, #f2f9ff); border: 1px solid var(--border); border-radius: 18px; }
+        
+        .floating-cta { position: fixed; right: 18px; bottom: 18px; z-index: 120; background: #25D366; color: white; padding: 13px 16px; border-radius: 999px; text-decoration: none; font-weight: 800; box-shadow: 0 10px 25px rgba(37, 211, 102, 0.28); }
+        
+        .footer { text-align: center; padding: 24px 0 10px; color: #8a9ab2; font-size: 0.95rem; }
+
+        /* KODE RESPONSIVE DI SINI (MEDIA QUERIES) */
+        @media (max-width: 900px) {
+            .hero, .services-grid, .process-grid, .pricing-grid, .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container { padding: 16px 15px 40px; }
+            .hero-card, .panel-card, .pricing-card, .service-card, .process-card, .testimonial-card { padding: 20px; }
+            
+            .stats-grid { grid-template-columns: 1fr; }
+            
+            .hero-actions { flex-direction: column; width: 100%; }
+            .hero-actions .btn { width: 100%; }
+            
+            .contact-box { flex-direction: column; text-align: center; }
+            .contact-box .btn { width: 100%; }
+            
+            /* Responsive Navbar */
+            .menu-toggle { display: block; }
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 65px;
+                right: 16px;
+                background: rgba(11, 79, 134, 0.98);
+                padding: 16px;
+                border-radius: 14px;
+                width: min(250px, calc(100% - 32px));
+                box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            }
+            .nav-links.open { display: flex; }
+            .nav-links a { padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.1); width: 100%; }
+            .nav-links a:last-child { border-bottom: none; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-wrap">
+            <a href="#beranda" class="brand">
+                <span class="brand-mark">🧼</span>
+                <span>AA Vacum In</span>
+            </a>
+            <button class="menu-toggle" aria-label="Buka menu">☰</button>
+            <div class="nav-links" id="navLinks">
+                <a href="#beranda">Beranda</a>
+                <a href="#layanan">Layanan</a>
+                <a href="#daftar-harga">Harga</a>
+                <a href="#faq">FAQ</a>
+                <a href="https://www.instagram.com/aa_vacum.in/" target="_blank">Instagram</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container" id="beranda">
+        <section class="hero">
+            <div class="hero-card">
+                <span class="eyebrow">Hydro-Vacuum Cleaning Profesional</span>
+                <h1>Bersihkan rumah Anda dari debu, tungau, dan noda yang membandel.</h1>
+                <p>Kami hadir dengan teknologi hydro-vacuum canggih untuk membersihkan kasur, sofa, karpet, dan area rumah Anda langsung dari lokasi tanpa ribet.</p>
+                <div class="hero-actions">
+                    <a href="https://wa.me/6285811912633?text=Halo%20AA%20Vacum%20In,%20saya%20ingin%20pesan%20layanan%20pembersihan." class="btn btn-primary" target="_blank">Pesan via WhatsApp</a>
+                    <a href="#daftar-harga" class="btn btn-secondary">Lihat Harga</a>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-pill"><strong>500+</strong><span>Proyek selesai</span></div>
+                    <div class="stat-pill"><strong>4.9/5</strong><span>Rating pelanggan</span></div>
+                    <div class="stat-pill"><strong>Fast</strong><span>Proses rapi & cepat</span></div>
+                </div>
+            </div>
+            <div class="panel-card">
+                <h3>Kenapa pilih AA Vacum In?</h3>
+                <ul>
+                    <li>Hasil bersih, rapi, dan lebih higienis</li>
+                    <li>Teknik pembersihan yang aman untuk furniture</li>
+                    <li>Harga promo dan layanan fleksibel</li>
+                    <li>Siap datang ke lokasi Anda</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section" id="daftar-harga">
+            <h2 class="section-title">Daftar Harga</h2>
+            <p class="section-subtitle">Detail harga vacuum kering dan vacuum basah sejajar dengan beranda.</p>
+            <div class="pricing-grid">
+                <div class="pricing-card hero-card">
+                    <span class="badge">Vacuum Kering</span>
+                    <h3>Tarif Standar</h3>
+                    <div class="price">Rp 15.000 <span style="font-size: 1rem; font-weight: normal; color: var(--muted);">/ item</span></div>
+                    <ul class="price-list">
+                        <li><strong>Vacuum kering: Rp 15.000 / item</strong></li>
+                        <li>Harga tetap untuk semua jenis item</li>
+                        <li>Ideal untuk pembersihan debu dan kotoran ringan</li>
+                    </ul>
+                </div>
+                <div class="pricing-card hero-card featured">
+                    <span class="badge">Vacuum Basah</span>
+                    <h3>Harga Sesuai List</h3>
+                    <div class="price" style="font-size: 1.4rem;">Harga normal item</div>
+                    <ul class="price-list">
+                        <li><strong>Vacuum basah: harga normal dari daftar item</strong></li>
+                        <li>Lebih intensif untuk noda dan kotoran basah</li>
+                        <li>Harga dihitung per jenis sofa, kursi, karpet, dan kasur</li>
+                    </ul>
+                </div>
+                <div class="pricing-card hero-card">
+                    <span class="badge">Detail Harga</span>
+                    <h3>Halaman Terpisah</h3>
+                    <p style="color: var(--muted); margin-top: 10px; font-size: 0.95rem;">Klik untuk lihat daftar lengkap dan gunakan fitur Keranjang Pesanan.</p>
+                    <a href="web-aa-vacum-in-harga.html" class="btn btn-primary" style="width: 100%; margin-top: 10px;">Buka Detail Harga</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="layanan">
+            <h2 class="section-title">Layanan Unggulan</h2>
+            <p class="section-subtitle">Pilih layanan yang paling sesuai kebutuhan rumah Anda.</p>
+            <div class="services-grid">
+                <div class="service-card hero-card">
+                    <div class="service-icon">🛏️</div>
+                    <h3>Vacuum Kering</h3>
+                    <p>Membersihkan debu, tungau, dan kotoran halus dari kasur, sofa, dan karpet.</p>
+                </div>
+                <div class="service-card hero-card">
+                    <div class="service-icon">💧</div>
+                    <h3>Deep Clean Wet (Vacuum Basah)</h3>
+                    <p>Pembersihan lebih intensif dengan air dan sampo khusus untuk noda membandel.</p>
+                </div>
+                <div class="service-card hero-card">
+                    <div class="service-icon">🧴</div>
+                    <h3>Anti Tungau</h3>
+                    <p>Perawatan khusus untuk mengurangi tungau dan bau tidak sedap pada area tidur.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Proses Kerja yang Sederhana</h2>
+            <div class="process-grid">
+                <div class="process-card hero-card">
+                    <h3>1. Konsultasi</h3>
+                    <p>Jelaskan kebutuhan Anda, jenis barang, dan area yang ingin dibersihkan.</p>
+                </div>
+                <div class="process-card hero-card">
+                    <h3>2. Pembersihan</h3>
+                    <p>Tim kami datang langsung dan bekerja dengan alat modern untuk hasil maksimal.</p>
+                </div>
+                <div class="process-card hero-card">
+                    <h3>3. Hasil Rapi</h3>
+                    <p>Area Anda jadi lebih bersih, segar, dan nyaman digunakan kembali.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Testimoni Pelanggan</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card hero-card">
+                    <h3>“Hasilnya jauh lebih bersih dari yang saya bayangkan.”</h3>
+                    <p>Kasur saya jadi lebih fresh dan tidak berbau lagi setelah diproses.</p>
+                </div>
+                <div class="testimonial-card hero-card">
+                    <h3>“Proses cepat dan pekerjaannya rapi.”</h3>
+                    <p>Sofa dan karpet saya terlihat lebih bagus dan nyaman dipakai.</p>
+                </div>
+                <div class="testimonial-card hero-card">
+                    <h3>“Harga promo sangat worth it.”</h3>
+                    <p>Pelayanan yang profesional dan hasil yang memuaskan untuk rumah saya.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="faq">
+            <h2 class="section-title">Pertanyaan yang Sering Diajukan</h2>
+            <div class="faq-list">
+                <div class="faq-item hero-card">
+                    <div class="faq-question">Apakah bisa datang ke rumah? <span>+</span></div>
+                    <div class="faq-answer">Ya, layanan kami siap datang langsung ke lokasi Anda sesuai area yang tersedia.</div>
+                </div>
+                <div class="faq-item hero-card">
+                    <div class="faq-question">Apakah harga sudah termasuk transportasi? <span>+</span></div>
+                    <div class="faq-answer">Harga promo yang tertera belum termasuk biaya transportasi ke lokasi, tergantung wilayah.</div>
+                </div>
+                <div class="faq-item hero-card">
+                    <div class="faq-question">Layanan apa saja yang tersedia? <span>+</span></div>
+                    <div class="faq-answer">Kami melayani vacuum kering, deep clean wet, dan pembersihan anti tungau untuk kasur, sofa, dan karpet.</div>
+                </div>
+            </div>
+        </section>
+
+        <div class="contact-box">
+            <div>
+                <h3 style="margin-bottom: 6px;">Siap booking sekarang?</h3>
+                <p style="margin:0; color: var(--muted);">Kirim pesan cepat untuk tanya kebutuhan Anda atau minta penawaran.</p>
+            </div>
+            <a href="https://wa.me/6285811912633?text=Halo%20AA%20Vacum%20In,%20saya%20ingin%20bertanya%20lebih%20lanjut%20tentang%20layanan." class="btn btn-primary" target="_blank">Hubungi Sekarang</a>
+        </div>
+
+        <div class="footer">
+            <p>© <span id="year"></span> AA Vacum In. Bersih, cepat, dan nyaman untuk rumah Anda.</p>
+        </div>
+    </div>
+
+    <a href="https://wa.me/6285811912633?text=Halo%20AA%20Vacum%20In,%20saya%20ingin%20pesan%20layanan%20pembersihan." class="floating-cta" target="_blank">💬 Pesan Sekarang</a>
+
+    <script>
+        const toggle = document.querySelector('.menu-toggle');
+        const navLinks = document.getElementById('navLinks');
+        toggle?.addEventListener('click', () => navLinks.classList.toggle('open'));
+
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.querySelector('.faq-question').addEventListener('click', () => {
+                item.classList.toggle('active');
+            });
+        });
+
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
