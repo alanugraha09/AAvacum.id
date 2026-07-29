@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AA Vacum In - Video Edukasi & Testimoni</title>
+    <style>
+        :root {
+            --primary: #0f6ebd;
+            --primary-dark: #0b4f86;
+            --accent: #ff7a00;
+            --accent-soft: #fff2e5;
+            --text: #233142;
+            --muted: #6b7a90;
+            --bg: #f5f9ff;
+            --surface: #ffffff;
+            --border: #dfe9f5;
+        }
+
+        * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text);
+            background: linear-gradient(145deg, #f7fbff 0%, var(--bg) 100%);
+            line-height: 1.6;
+        }
+
+        a { color: inherit; text-decoration: none; }
+        .navbar { position: sticky; top: 0; z-index: 100; background: rgba(11, 79, 134, 0.95); backdrop-filter: blur(10px); box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
+        .nav-wrap { max-width: 1120px; margin: 0 auto; padding: 14px 20px; display: flex; justify-content: space-between; align-items: center; }
+        .brand { display: flex; align-items: center; gap: 10px; font-weight: 800; color: white; letter-spacing: 0.3px; }
+        .brand-mark { width: 42px; height: 42px; border-radius: 12px; display: grid; place-items: center; overflow: hidden; box-shadow: inset 0 -3px 8px rgba(0,0,0,0.18); background: white; }
+        .brand-mark img { width: 100%; height: 100%; object-fit: contain; display: block; }
+        .nav-links { display: flex; gap: 18px; align-items: center; }
+        .nav-links a { color: white; text-decoration: none; font-weight: 600; }
+        .nav-links a:hover { opacity: 0.9; }
+        .menu-toggle { display: none; background: transparent; border: 0; color: white; font-size: 1.4rem; cursor: pointer; }
+
+        .container { max-width: 1120px; margin: 0 auto; padding: 24px 20px 60px; }
+        .hero-card, .video-card, .section-card { background: var(--surface); border: 1px solid var(--border); border-radius: 22px; box-shadow: 0 18px 45px rgba(13, 72, 120, 0.08); }
+        .hero-card { padding: 32px; background: linear-gradient(135deg, rgba(255,255,255,0.96) 0%, rgba(235,245,255,0.95) 100%); }
+        .section { padding: 28px 0 8px; }
+        .section-title { text-align: center; font-size: clamp(1.35rem, 2vw, 1.8rem); color: var(--primary-dark); margin-bottom: 18px; }
+        .section-subtitle { text-align: center; color: var(--muted); margin: -6px 0 18px; }
+        .video-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+        .video-card { padding: 20px; }
+        .video-card h3 { color: var(--primary-dark); margin-bottom: 10px; }
+        .video-card p { color: var(--muted); margin: 0; }
+        .video-card video { width: 100%; border-radius: 16px; margin-top: 14px; display: block; }
+        .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 13px 18px; border-radius: 999px; text-decoration: none; font-weight: 700; transition: transform 0.2s ease, box-shadow 0.2s ease; cursor: pointer; text-align: center; }
+        .btn-primary { background: linear-gradient(135deg, var(--primary), #4b9fe0); color: white; box-shadow: 0 12px 25px rgba(15,110,189,0.22); border: none; }
+        .btn-secondary { background: white; color: var(--primary-dark); border: 1px solid var(--border); }
+        .footer { text-align: center; padding: 24px 0 10px; color: #8a9ab2; font-size: 0.95rem; }
+
+        @media (max-width: 900px) {
+            .video-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 768px) {
+            .container { padding: 16px 15px 40px; }
+            .menu-toggle { display: block; }
+            .nav-links { display: none; flex-direction: column; position: absolute; top: 65px; right: 16px; background: rgba(11, 79, 134, 0.98); padding: 16px; border-radius: 14px; width: min(250px, calc(100% - 32px)); box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
+            .nav-links.open { display: flex; }
+            .nav-links a { padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.1); width: 100%; }
+            .nav-links a:last-child { border-bottom: none; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-wrap">
+            <a href="web-aa-vacum-in-index.html" class="brand">
+                <span class="brand-mark"><img src="logoweb.png" alt="AA Vacum In logo"></span>
+                <span>AA Vacum In</span>
+            </a>
+            <button class="menu-toggle" aria-label="Buka menu">☰</button>
+            <div class="nav-links" id="navLinks">
+                <a href="web-aa-vacum-in-index.html">Beranda</a>
+                <a href="web-aa-vacum-in-index.html#layanan">Layanan</a>
+                <a href="web-aa-vacum-in-harga.html">Harga</a>
+                <a href="web-aa-vacum-in-video.html">Video</a>
+                <a href="web-aa-vacum-in-index.html#faq">FAQ</a>
+                <a href="https://www.instagram.com/aa_vacum.in/" target="_blank">Instagram</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <section class="section">
+            <div class="hero-card">
+                <h2 class="section-title">Video Edukasi & Testimoni</h2>
+                <p class="section-subtitle">Tonton konten profesional dan review pelanggan untuk melihat kinerja AA Vacum In.</p>
+                <p style="text-align:center; color: var(--muted);">Halaman khusus ini dibuat agar tampilan web lebih rapi dan fokus pada konten video.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="video-grid">
+                <div class="video-card hero-card">
+                    <h3>Video Edukasi</h3>
+                    <p>Proses hydro-vacuum untuk sofa, karpet, dan kasur yang bersih dan higienis.</p>
+                    <video controls preload="metadata">
+                        <source src="asset%20vacum/videoedukasi%20vacum.mp4" type="video/mp4">
+                        Browser Anda tidak mendukung pemutaran video.
+                    </video>
+                </div>
+                <div class="video-card hero-card">
+                    <h3>Video Testimoni</h3>
+                    <p>Pengalaman nyata pelanggan setelah menggunakan layanan vacuum profesional kami.</p>
+                    <video controls preload="metadata">
+                        <source src="asset%20vacum/testimoni%20vacum%20.mp4" type="video/mp4">
+                        Browser Anda tidak mendukung pemutaran video.
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="hero-card" style="text-align:center;">
+                <p style="margin:0; color: var(--muted);">Pastikan file video berada dalam folder <strong>asset vacum</strong> agar pemutaran berjalan lancar.</p>
+            </div>
+        </section>
+
+        <div class="footer">
+            <p>© <span id="year"></span> AA Vacum In. Bersih, profesional, dan terpercaya.</p>
+        </div>
+    </div>
+
+    <script>
+        const toggle = document.querySelector('.menu-toggle');
+        const navLinks = document.getElementById('navLinks');
+        toggle?.addEventListener('click', () => navLinks.classList.toggle('open'));
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

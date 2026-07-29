@@ -31,7 +31,8 @@
         .navbar { position: sticky; top: 0; z-index: 100; background: rgba(11, 79, 134, 0.95); backdrop-filter: blur(10px); box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
         .nav-wrap { max-width: 1120px; margin: 0 auto; padding: 14px 20px; display: flex; justify-content: space-between; align-items: center; }
         .brand { display: flex; align-items: center; gap: 10px; font-weight: 800; color: white; letter-spacing: 0.3px; }
-        .brand-mark { width: 42px; height: 42px; border-radius: 12px; background: linear-gradient(135deg, #4fd1c5, #2b6cb0); display: grid; place-items: center; color: white; font-size: 1.2rem; box-shadow: inset 0 -3px 8px rgba(0,0,0,0.18); }
+        .brand-mark { width: 42px; height: 42px; border-radius: 12px; display: grid; place-items: center; overflow: hidden; box-shadow: inset 0 -3px 8px rgba(0,0,0,0.18); background: white; }
+        .brand-mark img { width: 100%; height: 100%; object-fit: contain; display: block; }
         
         .nav-links { display: flex; gap: 18px; align-items: center; }
         .nav-links a { color: white; text-decoration: none; font-weight: 600; }
@@ -72,9 +73,10 @@
         .section-title { text-align: center; font-size: clamp(1.35rem, 2vw, 1.8rem); color: var(--primary-dark); margin-bottom: 18px; }
         .section-subtitle { text-align: center; color: var(--muted); margin: -6px 0 18px; }
         
-        .services-grid, .process-grid, .testimonial-grid, .pricing-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+        .services-grid, .process-grid, .testimonial-grid, .pricing-grid, .video-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
         
-        .service-card, .process-card, .testimonial-card { padding: 20px; }
+        .service-card, .process-card, .testimonial-card, .video-card { padding: 20px; }
+        .video-card video { width: 100%; border-radius: 16px; margin-top: 14px; display: block; }
         .service-icon { width: 46px; height: 46px; border-radius: 14px; display: grid; place-items: center; margin-bottom: 12px; background: var(--accent-soft); color: var(--accent); font-size: 1.2rem; font-weight: 700; }
         
         .service-card h3, .process-card h3, .testimonial-card h3 { color: var(--primary-dark); }
@@ -143,7 +145,7 @@
     <nav class="navbar">
         <div class="nav-wrap">
             <a href="#beranda" class="brand">
-                <span class="brand-mark">🧼</span>
+                <span class="brand-mark"><img src="logoweb.png" alt="AA Vacum In logo"></span>
                 <span>AA Vacum In</span>
             </a>
             <button class="menu-toggle" aria-label="Buka menu">☰</button>
@@ -151,6 +153,7 @@
                 <a href="#beranda">Beranda</a>
                 <a href="#layanan">Layanan</a>
                 <a href="#daftar-harga">Harga</a>
+                <a href="web-aa-vacum-in-video.html">Video</a>
                 <a href="#faq">FAQ</a>
                 <a href="https://www.instagram.com/aa_vacum.in/" target="_blank">Instagram</a>
             </div>
@@ -254,6 +257,14 @@
                     <h3>3. Hasil Rapi</h3>
                     <p>Area Anda jadi lebih bersih, segar, dan nyaman digunakan kembali.</p>
                 </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="hero-card">
+                <h2 class="section-title">Halaman Video Khusus</h2>
+                <p class="section-subtitle">Semua konten video edukasi dan testimoni kini tampil lebih rapi di halaman terpisah.</p>
+                <a href="web-aa-vacum-in-video.html" class="btn btn-primary" style="margin-top: 14px;">Buka Halaman Video</a>
             </div>
         </section>
 

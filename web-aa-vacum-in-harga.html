@@ -32,7 +32,8 @@
         .navbar { position: sticky; top: 0; z-index: 100; background: rgba(11, 79, 134, 0.95); backdrop-filter: blur(10px); box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
         .nav-wrap { max-width: 1120px; margin: 0 auto; padding: 14px 20px; display: flex; justify-content: space-between; align-items: center; }
         .brand { display: flex; align-items: center; gap: 10px; font-weight: 800; color: white; letter-spacing: 0.3px; text-decoration: none; }
-        .brand-mark { width: 42px; height: 42px; border-radius: 12px; background: linear-gradient(135deg, #4fd1c5, #2b6cb0); display: grid; place-items: center; color: white; font-size: 1.2rem; box-shadow: inset 0 -3px 8px rgba(0,0,0,0.18); }
+        .brand-mark { width: 42px; height: 42px; border-radius: 12px; display: grid; place-items: center; overflow: hidden; box-shadow: inset 0 -3px 8px rgba(0,0,0,0.18); background: white; }
+        .brand-mark img { width: 100%; height: 100%; object-fit: contain; display: block; }
         .nav-links { display: flex; gap: 18px; align-items: center; }
         .nav-links a { color: white; text-decoration: none; font-weight: 600; }
         .nav-links a:hover { opacity: 0.9; }
@@ -55,6 +56,9 @@
         .price-list-details { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 18px; }
         .price-list-details h4 { margin: 0 0 10px; font-size: 1rem; color: var(--primary-dark); }
         .price-list-details ul { list-style: none; padding: 0; margin: 0; }
+        .video-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 16px; }
+        .video-card { padding: 20px; }
+        .video-card video { width: 100%; border-radius: 16px; margin-top: 14px; display: block; }
         .calculator-card { padding: 24px; margin-top: 16px; }
         .calculator-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; align-items: end; }
         label { display: block; font-weight: 700; margin-bottom: 6px; color: var(--primary-dark); }
@@ -98,16 +102,17 @@
 <body>
     <nav class="navbar">
         <div class="nav-wrap">
-            <a href="index.html" class="brand">
-                <span class="brand-mark">🧼</span>
+            <a href="web-aa-vacum-in-index.html" class="brand">
+                <span class="brand-mark"><img src="logoweb.png" alt="AA Vacum In logo"></span>
                 <span>AA Vacum In</span>
             </a>
             <button class="menu-toggle" aria-label="Buka menu">☰</button>
             <div class="nav-links" id="navLinks">
-                <a href="index.html">Beranda</a>
-                <a href="index.html#layanan">Layanan</a>
+                <a href="web-aa-vacum-in-index.html">Beranda</a>
+                <a href="web-aa-vacum-in-index.html#layanan">Layanan</a>
                 <a href="web-aa-vacum-in-harga.html">Detail Harga</a>
-                <a href="index.html#faq">FAQ</a>
+                <a href="web-aa-vacum-in-video.html">Video</a>
+                <a href="web-aa-vacum-in-index.html#faq">FAQ</a>
                 <a href="https://www.instagram.com/aa_vacum.in/" target="_blank">Instagram</a>
             </div>
         </div>
@@ -140,7 +145,7 @@
                     <span class="badge">Kembali</span>
                     <h3>Halaman Utama</h3>
                     <p style="color: var(--muted); margin-top: 10px; font-size: 0.95rem;">Informasi ringkas ada di halaman utama. Kembali untuk melihat layanan lainnya.</p>
-                    <a class="btn btn-primary" href="index.html" style="width: 100%; margin-top: 10px;">Kembali ke Beranda</a>
+                    <a class="btn btn-primary" href="web-aa-vacum-in-index.html" style="width: 100%; margin-top: 10px;">Kembali ke Beranda</a>
                 </div>
             </div>
         </section>
@@ -241,6 +246,14 @@
                 </div>
                 
                 <div class="result-box" id="resultBoxDetail">Estimasi harga: Rp 15.000</div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="hero-card">
+                <h2 class="section-title">Video Edukasi dan Testimoni</h2>
+                <p class="section-subtitle">Konten video kini tampil di halaman khusus agar tampilan website lebih rapi dan profesional.</p>
+                <a href="web-aa-vacum-in-video.html" class="btn btn-primary" style="margin-top: 14px;">Buka Halaman Video</a>
             </div>
         </section>
     </div>
